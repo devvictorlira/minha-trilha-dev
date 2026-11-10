@@ -1,0 +1,39 @@
+/* Animações de entrada e transições */
+
+    /* entrada do app depois do login */
+    body.enter .topbar {
+        animation: slideDown .55s cubic-bezier(.2, .8, .2, 1) .1s both
+    }
+
+    body.enter aside#nav {
+        animation: slideRight .55s cubic-bezier(.2, .8, .2, 1) .2s both
+    }
+
+    body.enter .hero>* {
+        animation: fadeUp .6s cubic-bezier(.2, .8, .2, 1) .3s both
+    }
+
+    body.enter main .section {
+        animation: fadeUp .6s cubic-bezier(.2, .8, .2, 1) .45s both
+    }
+
+    /* transições suaves no uso normal */
+    .section {
+        animation: fadeUp .35s ease both
+    }
+
+    .skill {
+        transition: background .15s, color .15s
+    }
+
+    .navbtn {
+        transition: background .15s, color .15s
+    }
+
+    #overlay.open {
+        animation: fadeIn .2s ease both
+    }
+
+    #overlay.open #drawer {
+        animation: drawerIn .3s cubic-bezier(.2, .8, .2, 1) both
+    }

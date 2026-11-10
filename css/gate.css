@@ -1,0 +1,202 @@
+/* Tela de acesso (senha) */
+
+    /* =========================================================
+       ACESSO (tela de chave) + ANIMAÇÕES
+       ========================================================= */
+    body.is-locked {
+        overflow: hidden
+    }
+
+    body.is-locked .app,
+    body.is-locked #toast,
+    body.is-locked #overlay {
+        visibility: hidden
+    }
+
+    .logout {
+        background: transparent;
+        cursor: pointer
+    }
+
+    .logout:hover {
+        color: #fff;
+        border-color: var(--blue)
+    }
+
+    #gate {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        overflow: auto;
+        background: radial-gradient(circle at 70% 0%, #10234a 0, transparent 45%), radial-gradient(circle at 10% 100%, #1a1546 0, transparent 42%), var(--bg)
+    }
+
+    #gate[hidden] {
+        display: none
+    }
+
+    .gate-glow {
+        position: fixed;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: .26;
+        pointer-events: none;
+        animation: glowFloat 14s ease-in-out infinite alternate
+    }
+
+    .gate-glow.a {
+        background: var(--blue);
+        top: -120px;
+        right: -80px
+    }
+
+    .gate-glow.b {
+        background: var(--purple);
+        bottom: -160px;
+        left: -100px;
+        animation-delay: -6s
+    }
+
+    .gate-card {
+        position: relative;
+        width: min(400px, 100%);
+        padding: 32px 28px 26px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(145deg, #0d1b32f2, #09162af2);
+        box-shadow: 0 30px 80px #0009;
+        display: grid;
+        gap: 14px;
+        text-align: center;
+        animation: gateIn .6s cubic-bezier(.2, .8, .2, 1) both
+    }
+
+    .gate-card.shake {
+        animation: shake .45s
+    }
+
+    .gate-logo {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--blue);
+        line-height: 1;
+        animation: floaty 3.2s ease-in-out infinite
+    }
+
+    .gate-card h1 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -.4px
+    }
+
+    .gate-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px
+    }
+
+    .gate-field {
+        position: relative
+    }
+
+    .gate-input {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px 44px 12px 14px;
+        background: #0b1930;
+        color: var(--text);
+        outline: none;
+        font-size: 15px;
+        transition: border-color .15s, box-shadow .15s
+    }
+
+    .gate-input:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px #5b8cff26
+    }
+
+    .gate-eye {
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        font-size: 16px
+    }
+
+    .gate-eye:hover {
+        color: #fff;
+        background: #142c56
+    }
+
+    .gate-remember {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 13px;
+        cursor: pointer
+    }
+
+    .gate-err {
+        min-height: 18px;
+        font-size: 13px;
+        color: #ff8ca5
+    }
+
+    .gate-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+        transition: transform .15s, opacity .15s
+    }
+
+    .gate-btn:hover:not([disabled]) {
+        transform: translateY(-1px)
+    }
+
+    .gate-setup {
+        display: grid;
+        gap: 8px;
+        text-align: left;
+        border: 1px dashed #3a5586;
+        border-radius: 12px;
+        padding: 12px;
+        font-size: 12px;
+        color: var(--muted)
+    }
+
+    .gate-setup[hidden] {
+        display: none
+    }
+
+    .gate-setup input {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #0b1930;
+        color: #baf3df;
+        padding: 8px 10px;
+        font: 12px/1.4 Consolas, monospace
+    }
+
+    #gate.leaving {
+        animation: gateOut .6s ease forwards;
+        pointer-events: none
+    }
+
+    #gate.leaving .gate-card {
+        animation: cardOut .5s ease forwards
+    }

@@ -1,0 +1,25 @@
+/* Aviso rápido (toast) */
+
+    #toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%) translateY(20px);
+        background: #142c56;
+        border: 1px solid var(--blue);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 13px;
+        opacity: 0;
+        pointer-events: none;
+        transition: .2s;
+        z-index: 30;
+        max-width: 90vw;
+        text-align: center
+    }
+
+    #toast.show {
+        opacity: 1;
+        transform: translateX(-50%)
+    }

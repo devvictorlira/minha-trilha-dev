@@ -1,0 +1,109 @@
+/* Revalidação (45+ dias) */
+
+    /* revalidação */
+    .st.reval {
+        border-color: var(--amber);
+        color: var(--amber);
+        font-size: 12px;
+        background: transparent
+    }
+
+    .skill.reval .skill-name {
+        text-decoration: none;
+        color: var(--amber)
+    }
+
+    .reval-banner {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border: 1px solid #5b4724;
+        background: #2a2113;
+        color: #f1deb8;
+        border-radius: 12px;
+        padding: 11px 14px;
+        margin: -6px 0 16px;
+        font-size: 13px
+    }
+
+    .reval-banner[hidden] {
+        display: none
+    }
+
+    .reval-banner button {
+        border: 1px solid #5b4724;
+        background: transparent;
+        color: var(--amber);
+        border-radius: 9px;
+        padding: 6px 11px
+    }
+
+    .reval-banner button:hover {
+        background: #38301c
+    }
+
+    .revblk {
+        background: #2a2113;
+        border-color: #5b4724
+    }
+
+    .revblk h3 {
+        color: var(--amber)
+    }
+
+    .date-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: var(--text)
+    }
+
+    .date-input {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #0b1930;
+        color: var(--text);
+        padding: 6px 8px;
+        font: inherit;
+        color-scheme: dark
+    }
+
+    .date-input:focus {
+        outline: none;
+        border-color: var(--blue)
+    }
+
+    .btnrow {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin: 12px 0
+    }
+
+    .btn {
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--text);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 13px
+    }
+
+    .btn:hover {
+        border-color: var(--blue)
+    }
+
+    .btn.primary {
+        background: linear-gradient(140deg, #347bff, #8a56ff);
+        border-color: transparent;
+        font-weight: 700
+    }
+
+    .btn[disabled] {
+        opacity: .45;
+        cursor: not-allowed
+    }

@@ -1,0 +1,192 @@
+/* Lista de habilidades em colunas */
+
+    .columns {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        align-items: start
+    }
+
+    .col {
+        display: grid;
+        gap: 16px
+    }
+
+    .skill-card {
+        overflow: hidden
+    }
+
+    .card-head {
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 700
+    }
+
+    .card-head .icon {
+        font-size: 18px;
+        color: var(--blue)
+    }
+
+    .count {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 500
+    }
+
+    .items {
+        padding: 6px 8px 10px
+    }
+
+    .skill {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 9px 6px;
+        color: #dce7fb;
+        cursor: pointer;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        border-radius: 8px
+    }
+
+    .skill:hover {
+        color: #fff;
+        background: #12274a
+    }
+
+    .skill:focus-visible {
+        outline: 2px solid var(--blue)
+    }
+
+    .st {
+        width: 19px;
+        height: 19px;
+        border: 1.7px solid #8295b4;
+        border-radius: 50%;
+        margin-top: 1px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1
+    }
+
+    .st.done {
+        background: var(--green);
+        border-color: var(--green);
+        color: #06162a
+    }
+
+    .st.prog {
+        border-color: var(--amber);
+        background: radial-gradient(circle, var(--amber) 0 3px, transparent 4px)
+    }
+
+    .st.locked {
+        border-color: #4a5d7d;
+        color: #6c7f9f;
+        font-size: 10px
+    }
+
+    .skill.done .skill-name {
+        text-decoration: line-through;
+        color: #8193b1
+    }
+
+    .skill.locked .skill-name {
+        color: #7186a8
+    }
+
+    .skill-main {
+        flex: 1;
+        min-width: 0
+    }
+
+    .skill-name {
+        font-size: 13px;
+        display: block
+    }
+
+    .skill-sub {
+        display: block;
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px
+    }
+
+    .level {
+        font-size: 10px;
+        padding: 3px 7px;
+        border-radius: 99px;
+        white-space: nowrap;
+        background: #38202e;
+        color: #ff8ca5
+    }
+
+    .level.media {
+        background: #392d1b;
+        color: var(--amber)
+    }
+
+    .level.low {
+        background: #12382f;
+        color: #63e2b1
+    }
+
+    .tip {
+        padding: 17px
+    }
+
+    .tip h3 {
+        margin: 0 0 8px;
+        font-size: 15px
+    }
+
+    .tip p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px
+    }
+
+    .empty {
+        color: var(--muted);
+        padding: 25px;
+        text-align: center;
+        display: none
+    }
+
+    .footer {
+        padding: 18px 2px;
+        color: #7085a7;
+        font-size: 12px;
+        text-align: center
+    }
+
+    .legend {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+        margin: -6px 0 16px
+    }
+
+    .legend span {
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+
+    .legend .st {
+        width: 14px;
+        height: 14px;
+        margin: 0;
+        font-size: 8px
+    }

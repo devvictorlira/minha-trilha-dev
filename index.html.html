@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Trilha Dev</title>
+    <link rel="icon" type="image/png" href="d:\Currículo-Profile\transferir (1).jfif">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="is-locked is-loading">
+
+    <!-- ============ TELA DE ACESSO ============ -->
+    <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+        <div class="gate-glow a"></div>
+        <div class="gate-glow b"></div>
+        <form class="gate-card" id="gateForm" autocomplete="off">
+            <div class="gate-logo">〈/〉</div>
+            <h1 id="gateTitle">Minha Trilha Dev</h1>
+            <p id="gateMsg">Digite sua chave de acesso para entrar.</p>
+            <div class="gate-field">
+                <input class="gate-input" id="gateInput" type="password" placeholder="Chave de acesso"
+                    aria-label="Chave de acesso" autocomplete="current-password" autofocus>
+                <button type="button" class="gate-eye" id="gateEye" aria-label="Mostrar ou ocultar a chave">👁</button>
+            </div>
+            <label class="gate-remember" id="gateRememberRow"><input type="checkbox" id="gateRemember"> Lembrar neste
+                navegador</label>
+            <div class="gate-err" id="gateErr" role="alert"></div>
+            <button class="btn primary gate-btn" type="submit" id="gateBtn">Entrar</button>
+            <div class="gate-setup" id="gateSetup" hidden>
+                <b style="color:var(--text)">Copie esta linha e substitua a linha ACCESS_PASSWORD_HASH em js/config.js:</b>
+                <input id="gateHash" type="text" readonly aria-label="Linha gerada">
+                <button type="button" class="btn" id="gateCopy">Copiar linha</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/gate.js"></script>
+
+    <div class="app">
+        <header class="topbar">
+            <div class="logo"><span>〈/〉</span> Minha Trilha Dev</div>
+            <div class="tagline">Acompanhe suas habilidades e evolução</div>
+            <div class="top-right"><span class="pill">CHECKLIST PESSOAL</span><button type="button" class="pill logout" id="logoutBtn" title="Bloquear e voltar para a tela de acesso">🔒 Sair</button></div>
+        </header>
+        <div class="layout">
+            <aside id="nav">
+                <button class="navbtn active" data-filter="Todas"><span class="navicon">⌂</span>Visão geral</button>
+                <button class="navbtn" data-filter="Metas"><span class="navicon">⚑</span>Metas</button>
+                <button class="navbtn" data-filter="Evolucao"><span class="navicon">↗</span>Evolução</button>
+                <button class="navbtn" data-filter="Mapa"><span class="navicon">⌥</span>Mapa de dependências</button>
+                <button class="navbtn" data-filter="Vagas"><span class="navicon">⚖</span>Comparar vaga</button>
+                <button class="navbtn" data-filter="Linguagens"><span class="navicon">〈/〉</span>Linguagens</button>
+                <button class="navbtn" data-filter="Frameworks"><span class="navicon">▱</span>Frameworks</button>
+                <button class="navbtn" data-filter="Banco de dados"><span class="navicon">▤</span>Banco de
+                    dados</button>
+                <button class="navbtn" data-filter="Nuvem e infraestrutura"><span class="navicon">☁</span>Nuvem e
+                    infraestrutura</button>
+                <button class="navbtn" data-filter="APIs"><span class="navicon">⌘</span>APIs</button>
+                <button class="navbtn" data-filter="Ferramentas"><span class="navicon">⚒</span>Ferramentas</button>
+                <button class="navbtn" data-filter="Engenharia de software"><span class="navicon">⚙</span>Engenharia de
+                    software</button>
+                <button class="navbtn" data-filter="Soft skills"><span class="navicon">♙</span>Soft skills</button>
+                <button class="navbtn" data-filter="Carreira"><span class="navicon">◆</span>Carreira</button>
+                <button class="navbtn" data-filter="Design e UX/UI"><span class="navicon">✎</span>Design e
+                    UX/UI</button>
+                <div class="tools-box">
+                    <button type="button" class="toolbtn" id="exportBtn"><span class="navicon">⇩</span>Exportar
+                        progresso</button>
+                    <button type="button" class="toolbtn" id="importBtn"><span class="navicon">⇧</span>Importar
+                        progresso</button>
+                    <div class="backup-note" id="backupNote"></div>
+                    <input type="file" id="importFile" accept=".json,application/json" hidden>
+                </div>
+                <div class="aside-note">
+                    <div style="color:var(--blue);font-size:20px">◎</div><b>Consistência vence intensidade.</b><br>Uma
+                    habilidade só é concluída quando você passa nos critérios e entrega o desafio prático.
+                </div>
+            </aside>
+            <main>
+                <div class="hero">
+                    <div class="progress-card">
+                        <div class="target">◎</div>
+                        <div class="progress-content">
+                            <div class="progress-title" id="progressTitle">0 de 0 habilidades concluídas</div>
+                            <div class="muted">Seu progresso geral de aprendizagem</div>
+                            <div class="barline">
+                                <div class="bar">
+                                    <div class="barfill" id="barfill"></div>
+                                </div>
+                                <div class="percent" id="percent">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="quote-card" id="nextGoal" type="button">
+                        <div class="quote-icon">⚑</div>
+                        <div id="nextGoalText"></div>
+                    </button>
+                </div>
+                <section class="section" id="skillsSection">
+                    <div class="section-head">
+                        <div>
+                            <h1>Lista de habilidades</h1>
+                            <div class="muted">Clique numa habilidade para ver material, critérios e desafio prático.
+                            </div>
+                        </div>
+                        <div class="tools"><input class="search" id="search"
+                                placeholder="⌕  Buscar habilidade ou tópico..." aria-label="Buscar habilidade"><select
+                                class="filter" id="statusFilter" aria-label="Filtrar por status">
+                                <option value="all">Todas as habilidades</option>
+                                <option value="avail">Disponíveis</option>
+                                <option value="todo">Pendentes</option>
+                                <option value="locked">Bloqueadas</option>
+                                <option value="done">Concluídas</option>
+                                <option value="reval">Para revalidar</option>
+                            </select></div>
+                    </div>
+                    <div class="reval-banner" id="revalBanner" hidden><span></span><button type="button"
+                            id="revalFilterBtn">Ver quais</button></div>
+                    <div class="legend"><span><i class="st locked">🔒</i> Bloqueada (conclua os
+                            pré-requisitos)</span><span><i class="st"></i> Disponível</span><span><i
+                                class="st prog"></i> Em andamento</span><span><i class="st done">✓</i>
+                            Concluída</span><span><i class="st reval">⟳</i> Revalidar (45+ dias sem conferência)</span>
+                    </div>
+                    <div class="columns" id="columns"></div>
+                    <div class="empty" id="empty">Nenhuma habilidade encontrada. Tente outra busca ou categoria.</div>
+                </section>
+                <section class="section" id="goalsSection" style="display:none">
+                    <div class="section-head">
+                        <div>
+                            <h1>Metas e vagas</h1>
+                            <div class="muted">Veja o quanto falta para cada tipo de vaga. O progresso vem das
+                                habilidades que você realmente concluiu.</div>
+                        </div>
+                    </div>
+                    <div class="goals" id="goals"></div>
+                    <div class="disclaimer">Atenção: checklist não é garantia de vaga. Empresas olham portfólio,
+                        comunicação e capacidade de aprender. Use as metas como bússola, não como promessa.</div>
+                </section>
+                <section class="section" id="evoSection" style="display:none">
+                    <div class="section-head">
+                        <div>
+                            <h1>Histórico e evolução</h1>
+                            <div class="muted">Datas de conclusão, seu ritmo de estudo e o que precisa de revalidação.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="evo"></div>
+                </section>
+                <section class="section" id="mapSection" style="display:none">
+                    <div class="section-head">
+                        <div>
+                            <h1>Mapa de dependências</h1>
+                            <div class="muted">Cada linha liga um pré-requisito à habilidade que ele libera. Clique numa
+                                habilidade para destacar o caminho (duplo clique abre os detalhes).</div>
+                        </div>
+                    </div>
+                    <div class="legend"><span><i class="st done">✓</i> Concluída</span><span><i class="st prog"></i> Em
+                            andamento</span><span><i class="st"></i> Disponível</span><span><i class="st locked">🔒</i>
+                            Bloqueada (borda tracejada)</span><span><i class="st reval">⟳</i> Revalidar</span></div>
+                    <div class="map-wrap" id="mapWrap">
+                        <div id="mapSvgBox"></div>
+                    </div>
+                    <div class="blk mapinfo" id="mapInfo"></div>
+                </section>
+                <section class="section" id="jobsSection" style="display:none">
+                    <div class="section-head">
+                        <div>
+                            <h1>Comparador de vagas</h1>
+                            <div class="muted">Cole a descrição de uma vaga e veja quanto da trilha você já cumpre e o
+                                que estudar primeiro.</div>
+                        </div>
+                    </div>
+                    <label for="jobText" class="small-title">Descrição da vaga</label>
+                    <textarea id="jobText" class="job-text"
+                        placeholder="Cole aqui o texto da vaga (requisitos, qualificações, diferenciais)..."></textarea>
+                    <div class="btnrow"><button type="button" class="btn primary" id="jobGo">Comparar com a minha
+                            trilha</button><button type="button" class="btn" id="jobSample">Usar exemplo</button><button
+                            type="button" class="btn" id="jobClear">Limpar</button></div>
+                    <div class="muted" style="font-size:12px">O texto fica só no seu navegador e não é enviado a lugar
+                        nenhum.</div>
+                    <div id="jobResult"></div>
+                </section>
+                <div class="footer">Minha Trilha Dev · Um checklist de estudo, não uma prova de competência. Valide cada
+                    habilidade com prática e projetos.</div>
+            </main>
+        </div>
+    </div>
+
+    <div id="overlay" aria-hidden="true">
+        <aside id="drawer" role="dialog" aria-modal="true" aria-label="Detalhes da habilidade"></aside>
+    </div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="celebrate"><canvas id="confetti"></canvas>
+        <div class="cele-card" id="celeCard" role="status" aria-live="polite"></div>
+    </div>
+
+    <script src="js/loader.js"></script>
+</body>
+
+</html>
