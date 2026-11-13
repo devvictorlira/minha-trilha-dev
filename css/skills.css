@@ -1,0 +1,221 @@
+/* Lista de habilidades em colunas */
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.col {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.skill-card {
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background: var(--panel2);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+}
+
+.card-head {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  background: linear-gradient(180deg, color-mix(in srgb, #fff 3%, transparent), transparent);
+}
+
+.card-head .icon {
+  font-size: 17px;
+  color: var(--blue-11);
+}
+
+.count {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--blue-9) 14%, transparent);
+  color: var(--blue-11);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.items {
+  padding: var(--space-2);
+}
+
+/* ── Habilidade ── */
+.skill {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px var(--space-2);
+  color: color-mix(in srgb, var(--slate-12) 88%, var(--blue-11));
+  cursor: pointer;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  border-radius: var(--radius-xl);
+}
+
+.skill:hover {
+  color: #fff;
+  background: var(--hover);
+}
+
+.skill:focus-visible {
+  outline: 2px solid var(--blue-9);
+  outline-offset: -2px;
+}
+
+/* Indicador de estado */
+.st {
+  width: 19px;
+  height: 19px;
+  border: 1.5px solid var(--slate-8);
+  border-radius: 50%;
+  margin-top: 1px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.st.done {
+  background: var(--jade-9);
+  border-color: var(--jade-9);
+  color: var(--jade-1);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--jade-9) 20%, transparent);
+}
+
+.st.prog {
+  border-color: var(--amber-9);
+  background: radial-gradient(circle, var(--amber-9) 0 3px, transparent 4px);
+}
+
+.st.locked {
+  border-color: var(--slate-7);
+  color: var(--slate-9);
+  font-size: 10px;
+}
+
+.skill.done .skill-name {
+  text-decoration: line-through;
+  text-decoration-color: var(--slate-8);
+  color: var(--slate-10);
+}
+
+.skill.locked .skill-name {
+  color: var(--slate-9);
+}
+
+.skill-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-name {
+  font-size: var(--text-sm);
+  display: block;
+}
+
+.skill-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Nível de importância */
+.level {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  background: var(--ruby-3);
+  color: var(--ruby-11);
+  box-shadow: inset 0 0 0 1px var(--ruby-6);
+}
+
+.level.media {
+  background: var(--amber-3);
+  color: var(--amber-11);
+  box-shadow: inset 0 0 0 1px var(--amber-6);
+}
+
+.level.low {
+  background: var(--jade-3);
+  color: var(--jade-11);
+  box-shadow: inset 0 0 0 1px var(--jade-6);
+}
+
+/* Dica */
+.tip {
+  padding: var(--space-4);
+  border-radius: var(--radius-2xl);
+  background: var(--panel2);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+}
+
+.tip h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.tip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 25px;
+  text-align: center;
+  display: none;
+}
+
+.footer {
+  padding: var(--space-4) 2px;
+  color: var(--slate-10);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+/* Legenda */
+.legend {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  margin: -6px 0 var(--space-4);
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend .st {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  font-size: 8px;
+}

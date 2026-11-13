@@ -1,0 +1,20 @@
+/* Ponto de entrada do CSS. A ordem dos imports é a ordem da cascata. */
+
+/* Fontes: Inter (texto), JetBrains Mono (títulos e rótulos) e Silkscreen (logo pixel) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&display=swap");
+
+@import url("base.css");
+@import url("layout.css");
+@import url("skills.css");
+@import url("goals.css");
+@import url("drawer.css");
+@import url("revalidation.css");
+@import url("evolution.css");
+@import url("map.css");
+@import url("jobs.css");
+@import url("toast.css");
+@import url("responsive.css");
+@import url("gate.css");
+@import url("animations.css");
+@import url("celebration.css");
+@import url("keyframes.css");
