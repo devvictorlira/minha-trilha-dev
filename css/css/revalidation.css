@@ -1,0 +1,121 @@
+/* Revalidação (45+ dias) */
+
+.st.reval {
+  border-color: var(--amber-9);
+  color: var(--amber-11);
+  font-size: var(--text-xs);
+  background: transparent;
+}
+
+.skill.reval .skill-name {
+  text-decoration: none;
+  color: var(--amber-11);
+}
+
+.reval-banner {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid var(--amber-6);
+  background: var(--amber-2);
+  color: var(--amber-12);
+  border-radius: var(--radius-2xl);
+  padding: 11px 14px;
+  margin: -6px 0 var(--space-4);
+  font-size: 13px;
+}
+
+.reval-banner[hidden] {
+  display: none;
+}
+
+.reval-banner button {
+  border: 1px solid var(--amber-6);
+  background: transparent;
+  color: var(--amber-11);
+  border-radius: var(--radius-xl);
+  padding: 6px 11px;
+}
+
+.reval-banner button:hover {
+  background: var(--amber-3);
+  border-color: var(--amber-8);
+}
+
+.revblk {
+  background: var(--amber-2);
+  border-color: var(--amber-6);
+}
+
+.revblk h3 {
+  color: var(--amber-11);
+}
+
+.date-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.date-input {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  padding: 6px var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color-scheme: dark;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: var(--blue-9);
+  box-shadow: var(--ring);
+}
+
+/* Botões (usados no app inteiro) */
+.btnrow {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: var(--space-3) 0;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  border-radius: var(--radius-xl);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  border-color: var(--blue-8);
+  background: var(--hover);
+}
+
+.btn.primary {
+  background: var(--grad-solid);
+  border-color: transparent;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--blue-9) 65%, transparent), inset 0 1px 0 rgb(255 255 255 / 0.22);
+}
+
+.btn.primary:hover {
+  filter: brightness(1.12);
+  background: var(--grad-solid);
+}
+
+.btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
